@@ -1,0 +1,23 @@
+.size1-5rem {
+    font-size: 1.5rem;
+}
+
+.size1-25rem {
+    font-size: 1.25rem;
+}
+
+.size1-75rem {
+    font-size: 1.75rem;
+}
+
+.size1rem {
+    font-size: 1rem;
+}
+
+.padding1em {
+    padding: 1em;
+}
+
+.text-blue {
+    color: #142694 !important;
+}

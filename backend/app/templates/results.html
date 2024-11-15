@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Similarity Results</title>
+</head>
+<body>
+    <h1>Similarity Results:</h1>
+    <ul>
+        {% for item in result %}
+            <li>Index: {{ item.index }}, Similarity: {{ item.similarity }}, Number of Duplicates: {{ item.n_duplicates }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

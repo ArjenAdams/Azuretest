@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ML Model Prediction Form</title>
+    </head>
+    <body>
+        <form action="/predict" method="POST">
+            <h2>Fill out the form for prediction</h2>
+
+            <label for="herkomst">Herkomst:</label><br>
+            <select id="herkomst" name="herkomst">
+                {% for value in values['herkomst'] %}
+                <option value="{{value}}">{{value}}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="marital_status">Marital Status:</label><br>
+            <select id="marital_status" name="marital_status">
+                {% for value in values['marital_status'] %}
+                <option value="{{value}}">{{value}}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="diagnose_code">Diagnose Code:</label><br>
+            <select id="diagnose_code" name="diagnose_code">
+                {% for value in values['diagnose_code'] %}
+                <option value="{{value}}">{{value}}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="diagnose_versie">Diagnose Versie:</label><br>
+            <select id="diagnose_versie" name="diagnose_versie">
+                {% for value in values['diagnose_versie'] %}
+                <option value="{{value}}">{{value}}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="opname_type">Opname Type:</label><br>
+            <select id="opname_type" name="opname_type">
+                {% for value in values['opname_type'] %}
+                <option value="{{value}}">{{value}}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="medicijn">Medicijn:</label><br>
+            <select id="medicijn" name="medicijn">
+                {% for value in values['medicijn'] %}
+                <option value="{{value}}">{{value}}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="geslacht">Geslacht:</label><br>
+            <select id="geslacht" name="geslacht">
+                {% for value in values['geslacht'] %}
+                <option value="{{value}}">{{value}}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="leeftijd">Leeftijd:</label><br>
+            <input type="number" id="leeftijd" name="leeftijd" step="any" min="0"><br>
+
+            <label for="duur_ok">Duur OK:</label><br>
+            <input type="number" id="duur_ok" name="duur_ok" step="any" min="0"><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

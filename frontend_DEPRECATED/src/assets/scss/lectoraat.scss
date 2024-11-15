@@ -1,0 +1,39 @@
+@import 'lectoraat-dashboard/variables';
+@import 'lectoraat-dashboard/mixins';
+
+// Plugins CSS
+@import "lectoraat-dashboard/plugins/plugin-animate-bootstrap-notify";
+@import "lectoraat-dashboard/plugins/plugin-perfect-scrollbar";
+
+// Core CSS
+@import "lectoraat-dashboard/buttons";
+@import "lectoraat-dashboard/inputs";
+@import "lectoraat-dashboard/typography";
+@import "lectoraat-dashboard/misc";
+@import "lectoraat-dashboard/checkboxes-radio";
+
+
+// components
+@import "lectoraat-dashboard/navbar";
+@import "lectoraat-dashboard/page-header";
+@import "lectoraat-dashboard/dropdown";
+@import "lectoraat-dashboard/alerts";
+@import "lectoraat-dashboard/images";
+@import "lectoraat-dashboard/nucleo-outline";
+@import "lectoraat-dashboard/tables";
+@import "lectoraat-dashboard/sidebar-and-main-panel";
+@import "lectoraat-dashboard/footers";
+@import "lectoraat-dashboard/fixed-plugin";
+
+// cards
+@import "lectoraat-dashboard/cards";
+@import "lectoraat-dashboard/cards/card-plain";
+@import "lectoraat-dashboard/cards/card-chart";
+@import "lectoraat-dashboard/cards/card-user";
+@import "lectoraat-dashboard/cards/card-map";
+@import "lectoraat-dashboard/cards/card-stats";
+
+@import "lectoraat-dashboard/responsive";
+
+// html to react differences
+@import "lectoraat-dashboard/react/react-differences.scss";

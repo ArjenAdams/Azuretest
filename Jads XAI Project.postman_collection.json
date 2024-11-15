@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "e937f070-0744-4fd7-96e9-7272b5eb8ae8",
+		"name": "Jads XAI Project",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24286089"
+	},
+	"item": [
+		{
+			"name": "loadModel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "path_model_file",
+							"value": "Modellen/xgb.pkl",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://127.0.0.1:5000/sd_api/loadModel"
+			},
+			"response": []
+		},
+		{
+			"name": "home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:5000/sd_api"
+			},
+			"response": []
+		},
+		{
+			"name": "predict",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "data",
+							"value": "{\n  \"age\": 44,\n  \"weight\": 79,\n  \"gender\": 0,\n  \"temperature\": 37,\n  \"heart_rate\": 100,\n  \"resp_rate\": 28,\n  \"spo2\": 98,\n  \"sbp\": 107,\n  \"dbp\": 66,\n  \"mbp\": 75,\n  \"wbc\": 8.5,\n  \"hemoglobin\": 12.8999996185,\n  \"platelet\": 268,\n  \"bun\": 12,\n  \"cr\": 0.8999999762,\n  \"glu\": 102,\n  \"Na\": 138,\n  \"Cl\": 105,\n  \"K\": 3.5,\n  \"Mg\": 2.2000000477,\n  \"Ca\": 7.8000001907,\n  \"P\": 3.4000000954,\n  \"inr\": 1.2999999523,\n  \"pt\": 14.5,\n  \"ptt\": 37.4000015259,\n  \"bicarbonate\": 25,\n  \"aniongap\": 12,\n  \"gcs\": 15,\n  \"vent\": 0,\n  \"crrt\": 0,\n  \"vaso\": 1,\n  \"seda\": 0,\n  \"sofa_score\": 3,\n  \"ami\": 0,\n  \"ckd\": 0,\n  \"copd\": 0,\n  \"hyperte\": 0,\n  \"dm\": 0,\n  \"aki\": 0,\n  \"stroke\": 0,\n  \"AISAN\": true,\n  \"BLACK\": false,\n  \"HISPANIC\": false,\n  \"OTHER\": false,\n  \"WHITE\": false,\n  \"unknown\": false,\n  \"CCU\": false,\n  \"CVICU\": false,\n  \"MICU\": true,\n  \"MICU/SICU\": false,\n  \"NICU\": false,\n  \"SICU\": false,\n  \"TSICU\": false\n}",
+							"type": "text"
+						},
+						{
+							"key": "method",
+							"value": "RANDOM",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://127.0.0.1:5000/sd_api/predict"
+			},
+			"response": []
+		},
+		{
+			"name": "get_similarity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ID\": 2438,\r\n    \"amount\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/get_similarity"
+			},
+			"response": []
+		},
+		{
+			"name": "getData (oude model)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000/data"
+			},
+			"response": []
+		},
+		{
+			"name": "predict (applicatie)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"age\": 44,\r\n  \"weight\": 79,\r\n  \"gender\": 0,\r\n  \"temperature\": 37,\r\n  \"heart_rate\": 100,\r\n  \"resp_rate\": 28,\r\n  \"spo2\": 98,\r\n  \"sbp\": 107,\r\n  \"dbp\": 66,\r\n  \"mbp\": 75,\r\n  \"wbc\": 8.5,\r\n  \"hemoglobin\": 12.8999996185,\r\n  \"platelet\": 268,\r\n  \"bun\": 12,\r\n  \"cr\": 0.8999999762,\r\n  \"glu\": 102,\r\n  \"Na\": 138,\r\n  \"Cl\": 105,\r\n  \"K\": 3.5,\r\n  \"Mg\": 2.2000000477,\r\n  \"Ca\": 7.8000001907,\r\n  \"P\": 3.4000000954,\r\n  \"inr\": 1.2999999523,\r\n  \"pt\": 14.5,\r\n  \"ptt\": 37.4000015259,\r\n  \"bicarbonate\": 25,\r\n  \"aniongap\": 12,\r\n  \"gcs\": 15,\r\n  \"vent\": 0,\r\n  \"crrt\": 0,\r\n  \"vaso\": 1,\r\n  \"seda\": 0,\r\n  \"sofa_score\": 3,\r\n  \"ami\": 0,\r\n  \"ckd\": 0,\r\n  \"copd\": 0,\r\n  \"hyperte\": 0,\r\n  \"dm\": 0,\r\n  \"aki\": 0,\r\n  \"stroke\": 0,\r\n  \"AISAN\": true,\r\n  \"BLACK\": false,\r\n  \"HISPANIC\": false,\r\n  \"OTHER\": false,\r\n  \"WHITE\": false,\r\n  \"unknown\": false,\r\n  \"CCU\": false,\r\n  \"CVICU\": false,\r\n  \"MICU\": true,\r\n  \"MICU/SICU\": false,\r\n  \"NICU\": false,\r\n  \"SICU\": false,\r\n  \"TSICU\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/predict"
+			},
+			"response": []
+		},
+		{
+			"name": "counterfactuals (applicatie)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"age\": 55,\r\n        \"weight\": 79.8499984741,\r\n        \"gender\": 0,\r\n        \"temperature\": 37.1100006104,\r\n        \"heart_rate\": 135,\r\n        \"resp_rate\": 18,\r\n        \"spo2\": 96,\r\n        \"sbp\": 133,\r\n        \"dbp\": 74,\r\n        \"mbp\": 88,\r\n        \"wbc\": 10.1000003815,\r\n        \"hemoglobin\": 8.3999996185,\r\n        \"platelet\": 92,\r\n        \"bun\": 27,\r\n        \"cr\": 1.2000000477,\r\n        \"glu\": 134,\r\n        \"Na\": 136,\r\n        \"Cl\": 106,\r\n        \"K\": 4.4000000954,\r\n        \"Mg\": 1.8999999762,\r\n        \"Ca\": 8,\r\n        \"P\": 3.0999999046,\r\n        \"inr\": 1.7999999523,\r\n        \"pt\": 19.3999996185,\r\n        \"ptt\": 33.5999984741,\r\n        \"bicarbonate\": 21,\r\n        \"aniongap\": 13,\r\n        \"gcs\": 15,\r\n        \"vent\": 0,\r\n        \"crrt\": 0,\r\n        \"vaso\": 0,\r\n        \"seda\": 1,\r\n        \"sofa_score\": 2,\r\n        \"ami\": 0,\r\n        \"ckd\": 0,\r\n        \"copd\": 0,\r\n        \"hyperte\": 0,\r\n        \"dm\": 0,\r\n        \"aki\": 0,\r\n        \"stroke\": 0,\r\n        \"AISAN\": 0,\r\n        \"BLACK\": 0,\r\n        \"HISPANIC\": 0,\r\n        \"OTHER\": 0,\r\n        \"WHITE\": 1,\r\n        \"unknown\": 0,\r\n        \"CCU\": 0,\r\n        \"CVICU\": 0,\r\n        \"MICU\": 0,\r\n        \"MICU/SICU\": 0,\r\n        \"NICU\": 0,\r\n        \"SICU\": 0,\r\n        \"TSICU\": 0\r\n    },\r\n    \"method\": \"KDTREE\",\r\n    \"amount\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/counterfactual"
+			},
+			"response": []
+		},
+		{
+			"name": "counterfactuals",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "data",
+							"value": "{\n  \"age\": 44,\n  \"weight\": 79,\n  \"gender\": 0,\n  \"temperature\": 37,\n  \"heart_rate\": 100,\n  \"resp_rate\": 28,\n  \"spo2\": 98,\n  \"sbp\": 107,\n  \"dbp\": 66,\n  \"mbp\": 75,\n  \"wbc\": 8.5,\n  \"hemoglobin\": 12.8999996185,\n  \"platelet\": 268,\n  \"bun\": 12,\n  \"cr\": 0.8999999762,\n  \"glu\": 102,\n  \"Na\": 138,\n  \"Cl\": 105,\n  \"K\": 3.5,\n  \"Mg\": 2.2000000477,\n  \"Ca\": 7.8000001907,\n  \"P\": 3.4000000954,\n  \"inr\": 1.2999999523,\n  \"pt\": 14.5,\n  \"ptt\": 37.4000015259,\n  \"bicarbonate\": 25,\n  \"aniongap\": 12,\n  \"gcs\": 15,\n  \"vent\": 0,\n  \"crrt\": 0,\n  \"vaso\": 1,\n  \"seda\": 0,\n  \"sofa_score\": 3,\n  \"ami\": 0,\n  \"ckd\": 0,\n  \"copd\": 0,\n  \"hyperte\": 0,\n  \"dm\": 0,\n  \"aki\": 0,\n  \"stroke\": 0,\n  \"AISAN\": true,\n  \"BLACK\": false,\n  \"HISPANIC\": false,\n  \"OTHER\": false,\n  \"WHITE\": false,\n  \"unknown\": false,\n  \"CCU\": false,\n  \"CVICU\": false,\n  \"MICU\": true,\n  \"MICU/SICU\": false,\n  \"NICU\": false,\n  \"SICU\": false,\n  \"TSICU\": false\n}",
+							"type": "text"
+						},
+						{
+							"key": "method",
+							"value": "GENETIC",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://127.0.0.1:5000/sd_api/counterfactuals"
+			},
+			"response": []
+		},
+		{
+			"name": "generate shap",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Property</th>\r",
+							"        <th>Value</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response}}\r",
+							"        <tr>\r",
+							"            <td>{{@key}}</td>\r",
+							"            <td>{{this}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type_visualization\": \"PPT_PLOT\",\r\n    \"range\": [0,50],\r\n    \"feature_name\": \"temperature\",\r\n    \"interaction_index\": \"age\",\r\n    \"index\": 0,\r\n    \"max_display\": 5,\r\n    \"list_indices\": [0,2,5,19,422]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/generate_shap"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
