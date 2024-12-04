@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Similarity</title>
+</head>
+<body>
+    <form action="/get_similarity" method="post">
+        <label for="target_index">Target Index:</label><br>
+        <select id="target_index" name="target_index">
+            {% for index in indices %}
+                <option value="{{index}}">{{index}}</option>
+            {% endfor %}
+        </select><br>
+        <label for="method">Method:</label><br>
+        <select id="method" name="method">
+            <option value="jaccard">Jaccard</option>
+        </select><br>
+        <label for="sort">Sort:</label><br>
+        <select id="sort" name="sort">
+            <option value="ascending">Ascending</option>
+            <option value="descending">Descending</option>
+        </select><br>
+        <label for="n_items">N Items:</label><br>
+        <input type="text" id="n_items" name="n_items"><br>
+        <label for="unique_only">Unique Only:</label><br>
+        <select id="unique_only" name="unique_only">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select><br>
+        <label for="exclude_self">Exclude Self:</label><br>
+        <select id="exclude_self" name="exclude_self">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
