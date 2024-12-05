@@ -3,7 +3,7 @@ import json
 from flask import Flask, request
 from flask_restx import Resource
 
-from .TypesOfVisualisationMethod import OtherVisualisation
+from app.ai_model.TypesOfVisualisationMethod import OtherVisualisation
 from .CounterFactualType import CounterFactualType
 from .ai_api import AI_API
 

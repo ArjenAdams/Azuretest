@@ -6,8 +6,8 @@ from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
 from flask_restx import Api, Resource, fields, reqparse
 
-
-from .ai_model.sd_api import SD_API
+from app.ai_model.sd_api import SD_API
+from app.ai_model.sd_api import SD_API
 
 
 def create_app():
@@ -531,6 +531,35 @@ def create_app():
             data = data.to_json(orient='records')
 
             return data
+
+
+    @api.route('/data/<int:patient_id>')
+    class PatientDataResource(Resource):
+        @api.doc(
+            params={
+                'patient_id': {
+                    'description': 'The ID of the patient to retrieve data for',
+                    'type': 'int'
+                }
+            }
+        )
+        def get(self, patient_id):
+            """
+            Gets the data for a specific patient based on patient_id
+            Returns
+            -------
+            object
+            """
+            data = sd_api.get_data()
+            patient_data = data[data['ID'] == patient_id]
+
+            if patient_data.empty:
+                return {'message': 'Patient not found'}, 404
+
+            patient_data_json = patient_data.to_json(orient='records')
+
+            return patient_data_json
+
 
     @api.route('/get_similarity')
     class GetSimilarity(Resource):
