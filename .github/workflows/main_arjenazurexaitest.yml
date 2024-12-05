@@ -59,7 +59,6 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
@@ -67,3 +66,9 @@ jobs:
           app-name: 'arjenazurexaitest'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2B9D235C0CB74BD3A8AC86C317F9B913 }}
+
+      - name: Startup Command
+        run: |
+          unzip release.zip
+          pip install -r requirements.txt
+          python -u run.py
